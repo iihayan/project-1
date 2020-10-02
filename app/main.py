@@ -8,6 +8,20 @@ import pronouncing
 
 from datetime import date
 
+a = b = c = d = e = f = g = h = i = j = k = l = m = n = o = p = q = r = s = t = u = v = w = x = y = z = ' i thought of you'
+all_my_thoughts = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+random_number = random.randrange( len(all_my_thoughts) )
+today = date.today()
+message = str(today) + all_my_thoughts [random_number]
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(auth)
+
+api.update_status(message)
+print("Done.")
+
 #Option 1:
 #Pick a phrase randomly from a list of phrases:
 # phrase_list = ["Hi my name is Sara",
@@ -15,12 +29,6 @@ from datetime import date
 #                "I like twitter bots"]
 # random_number = random.randrange( len(phrase_list) )
 # message = phrase_list [random_number]
-
-a = b = c = d = e = f = g = h = i = j = k = l = m = n = o = p = q = r = s = t = u = v = w = x = y = z = 'i thought of you'
-all_my_thoughts = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-random_number = random.randrange( len(all_my_thoughts) )
-today = date.today()
-message = today + all_my_thoughts [random_number]
 
 # Option 2
 # Create a sentence template with some blanks, and
@@ -53,14 +61,6 @@ message = today + all_my_thoughts [random_number]
 # word2 = word_list [random_number]
 #
 # message = template.format(word1,word2)
-
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-
-api = tweepy.API(auth)
-
-api.update_status(message)
-print("Done.")
 
 # Option 4:
 # Basic search
